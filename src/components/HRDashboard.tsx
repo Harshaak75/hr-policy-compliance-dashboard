@@ -23,13 +23,13 @@ export default function HRDashboard() {
       {/* Mobile Sidebar Overlay */}
       {isMobileSidebarOpen && (
         <>
-          {/* Backdrop */}
+          {/* Backdrop with smooth transition */}
           <div 
-            className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+            className="fixed inset-0 bg-gray-900/20 backdrop-blur-sm z-40 lg:hidden transition-opacity duration-300 ease-in-out"
             onClick={() => setIsMobileSidebarOpen(false)}
           />
-          {/* Sidebar */}
-          <div className="fixed inset-y-0 left-0 z-50 lg:hidden">
+          {/* Sidebar with smooth slide-in animation */}
+          <div className="fixed inset-y-0 left-0 z-50 lg:hidden transform transition-transform duration-300 ease-in-out">
             <Sidebar activePage="dashboard" onClose={() => setIsMobileSidebarOpen(false)} />
           </div>
         </>

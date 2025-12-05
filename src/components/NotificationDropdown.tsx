@@ -97,25 +97,29 @@ export default function NotificationDropdown() {
             )}
           </button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-80" style={{ borderColor: '#E5EAF0' }}>
-          <DropdownMenuLabel className="text-base font-semibold" style={{ color: '#1A1A1A' }}>
+        <DropdownMenuContent 
+          align="end" 
+          className="w-[calc(100vw-2rem)] sm:w-96 max-w-md" 
+          style={{ borderColor: '#E5EAF0' }}
+        >
+          <DropdownMenuLabel className="text-base font-semibold px-3 py-2" style={{ color: '#1A1A1A' }}>
             Notifications
           </DropdownMenuLabel>
           <DropdownMenuSeparator style={{ backgroundColor: '#E5EAF0' }} />
-          <div className="max-h-96 overflow-y-auto">
+          <div className="max-h-[60vh] sm:max-h-96 overflow-y-auto">
             {notifications.map((notification) => (
               <DropdownMenuItem
                 key={notification.id}
-                className="flex flex-col items-start p-4 cursor-pointer hover:bg-gray-50"
+                className="flex flex-col items-start p-3 sm:p-4 cursor-pointer hover:bg-gray-50 focus:bg-gray-50"
                 onSelect={(e) => e.preventDefault()}
               >
                 <div className="w-full space-y-2">
                   <div className="flex items-start justify-between gap-2">
-                    <h4 className="text-sm font-medium flex-1" style={{ color: '#1A1A1A' }}>
+                    <h4 className="text-sm font-medium flex-1 leading-snug" style={{ color: '#1A1A1A' }}>
                       {notification.title}
                     </h4>
                     <Badge
-                      className="text-xs font-semibold px-2 py-0.5"
+                      className="text-xs font-semibold px-2 py-0.5 whitespace-nowrap flex-shrink-0"
                       style={{
                         backgroundColor: notification.status === "NEW" ? '#0052CC' : '#9BA9B4',
                         color: 'white',

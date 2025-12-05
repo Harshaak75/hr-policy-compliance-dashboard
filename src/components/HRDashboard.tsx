@@ -16,8 +16,8 @@ export default function HRDashboard() {
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col">
-        {/* Top Header Bar */}
-        <header className="bg-white border-b" style={{ borderColor: '#E5EAF0' }}>
+        {/* Top Header Bar - Sticky */}
+        <header className="sticky top-0 z-10 bg-white border-b" style={{ borderColor: '#E5EAF0' }}>
           <div className="px-8 py-4">
             <div className="flex items-center justify-between gap-8">
               {/* Left: Title */}

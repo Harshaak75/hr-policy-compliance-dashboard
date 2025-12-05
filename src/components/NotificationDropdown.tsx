@@ -85,7 +85,7 @@ export default function NotificationDropdown() {
     <>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button className="relative p-2 rounded-lg hover:bg-gray-50 transition-colors">
+          <button className="relative p-2 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
             <Bell className="w-5 h-5" style={{ color: '#6B7280' }} />
             {unreadCount > 0 && (
               <div

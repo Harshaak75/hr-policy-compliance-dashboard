@@ -110,24 +110,24 @@ export default function PolicyUpdatesTable() {
   return (
     <>
       <Card 
-        className="bg-white shadow-lg border h-[600px] flex flex-col" 
+        className="bg-white shadow-lg border h-auto lg:h-[600px] flex flex-col" 
         style={{ borderColor: '#E5EAF0', borderRadius: '8px' }}
       >
-        <CardHeader className="pb-4 border-b" style={{ borderColor: '#E5EAF0' }}>
-          <CardTitle className="text-xl font-semibold" style={{ color: '#0052CC' }}>
+        <CardHeader className="pb-3 sm:pb-4 border-b p-4 sm:p-6" style={{ borderColor: '#E5EAF0' }}>
+          <CardTitle className="text-lg sm:text-xl font-semibold" style={{ color: '#0052CC' }}>
             Latest Government Policy Updates
           </CardTitle>
-          <p className="text-sm mt-1" style={{ color: '#6B7280' }}>
+          <p className="text-xs sm:text-sm mt-1" style={{ color: '#6B7280' }}>
             Something new requires review
           </p>
           
           {/* Status Filter Pills */}
-          <div className="flex gap-2 mt-4">
+          <div className="flex gap-2 mt-3 sm:mt-4 flex-wrap">
             {(["All", "New", "Reviewed"] as FilterStatus[]).map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className="px-4 py-1.5 rounded-full text-sm font-medium transition-all"
+                className="px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all"
                 style={{
                   backgroundColor: activeFilter === filter ? '#0052CC' : '#F7F9FC',
                   color: activeFilter === filter ? '#FFFFFF' : '#6B7280',
@@ -141,22 +141,22 @@ export default function PolicyUpdatesTable() {
         </CardHeader>
 
         <CardContent className="p-0 flex-1 overflow-hidden">
-          <div className="h-full overflow-y-auto px-6 py-4">
-            <div className="space-y-4">
+          <div className="h-full max-h-[500px] lg:max-h-none overflow-y-auto px-4 sm:px-6 py-3 sm:py-4">
+            <div className="space-y-3 sm:space-y-4">
               {filteredPolicies.map((policy) => (
                 <div 
                   key={policy.id}
-                  className="p-4 rounded-lg border hover:shadow-md transition-all cursor-pointer"
+                  className="p-3 sm:p-4 rounded-lg border hover:shadow-md transition-all cursor-pointer"
                   style={{ borderColor: '#E5EAF0', backgroundColor: 'white' }}
                 >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-base mb-2" style={{ color: '#1A1A1A' }}>
+                  <div className="flex items-start justify-between gap-2 sm:gap-4">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-sm sm:text-base mb-2 line-clamp-2" style={{ color: '#1A1A1A' }}>
                         {policy.title}
                       </h3>
-                      <div className="flex items-center gap-3 flex-wrap">
+                      <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
                         <span 
-                          className="text-xs px-2.5 py-1 rounded-full font-medium"
+                          className="text-xs px-2 sm:px-2.5 py-1 rounded-full font-medium"
                           style={{ 
                             backgroundColor: '#F7F9FC',
                             color: '#6B7280',
@@ -173,7 +173,7 @@ export default function PolicyUpdatesTable() {
                           })}
                         </span>
                         <Badge 
-                          className="text-xs font-semibold px-2.5 py-0.5"
+                          className="text-xs font-semibold px-2 sm:px-2.5 py-0.5"
                           style={{ 
                             backgroundColor: policy.status === "New" ? '#00B8D9' : '#9BA9B4',
                             color: 'white'
@@ -184,11 +184,11 @@ export default function PolicyUpdatesTable() {
                       </div>
                     </div>
                     <button 
-                      className="p-2 rounded-lg hover:bg-gray-50 transition-colors flex-shrink-0"
+                      className="p-1.5 sm:p-2 rounded-lg hover:bg-gray-50 transition-colors flex-shrink-0"
                       aria-label="View details"
                       onClick={() => handleViewDetails(policy)}
                     >
-                      <Eye className="w-5 h-5" style={{ color: '#00B8D9' }} />
+                      <Eye className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#00B8D9' }} />
                     </button>
                   </div>
                 </div>
